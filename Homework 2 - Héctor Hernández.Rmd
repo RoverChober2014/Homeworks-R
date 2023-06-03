@@ -1,0 +1,61 @@
+HOMEWORK 2
+
+FUNCIONES EN R
+
+1- Estructura de una función
+  Una función es el conjunto de instrucciones que convierten entradas en resultados y está estrcturada por Entradas o Argumentos (Inputs), el cuerpo o conunto de instrucciones que van entre {} y Salidas (Outputs) que son el resultado de la función
+
+2- Ejemplo de una función
+```{r}
+suma <- function(x, y){
+  resultado <- x + y
+  return(resultado)
+}
+
+suma(x=7, y=2)
+
+```
+3- Argumentos de una función
+Los argumentos de una función son las entradas y pueden ser cuantitativos o lógicos, es decir, pueden ser valores numéricos o valores lógicos TRUE o FALSE
+
+FAMILIA apply
+
+1- laply
+
+La familya apply es usada para aplica una función a cada elemento de una estructura de datos, especialmente matrices.lapply() es un caso especial de apply(), diseñado para aplicar funciones a todos los elementos de una lista. La l de su nombre se refiere, precisamente, a lista
+```{r}
+trees[1:5, ]
+lapply(X = trees, FUN = mean)
+arboles <- lapply(X = trees, FUN = mean)
+class(arboles)
+```
+2- sapply
+
+sapply() aplica una función a un vector o lista y devuelve un vector, matriz o array, simplificando sintaxis de funciones
+```{r}
+out <- numeric(10)
+
+for (i in 1:10){
+  out[i] <- i ^ 2
+}
+out
+
+sapply(1:10, function(i) i ^ 2)
+```
+3- vapply
+
+vapply() es una función similar a sapply, con la diferencia que con vapply hay espeficicar el formato del resultado
+```{r}
+my_data <- data.frame(x1 = 1:5, x2 = 2:6, x3 = 3)
+my_data
+
+my_list <- list(1:5, letters[1:3], 777)
+my_list
+
+apply(my_data, 1, sum)
+apply(my_data, 2, sum)
+lapply(my_list, length)
+sapply(my_list, length)
+vapply(my_list, length, integer(1))
+```
+
